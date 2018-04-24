@@ -1,5 +1,6 @@
 package edu.illinois.cs.cs125.facialidentification;
 
+import android.Manifest;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -23,6 +24,8 @@ import org.json.JSONObject;
 
 import com.frosquivel.magicalcamera.MagicalCamera;
 import com.frosquivel.magicalcamera.Functionallities.PermissionGranted;
+import com.frosquivel.magicalcamera.MagicalPermissions;
+import com.frosquivel.magicalcamera.Objects.MagicalCameraObject;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -58,7 +61,24 @@ public class MainActivity extends AppCompatActivity {
          * get photo
          */
         void getPhoto() {
+            String[] permissions = new String[] {
+                    Manifest.permission.CAMERA,
+                    Manifest.permission.READ_EXTERNAL_STORAGE,
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE
+            };
+            MagicalPermissions magicalPermissions = new MagicalPermissions(this, permissions);
+        }
 
+        /**
+         * take photo
+         */
+        void takePhoto() {
+            String[] permissions = new String[] {
+                    Manifest.permission.CAMERA,
+                    Manifest.permission.READ_EXTERNAL_STORAGE,
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE
+            };
+            MagicalPermissions magicalPermissions = new MagicalPermissions(this, permissions);
         }
 
         // Set up the queue for our API requests

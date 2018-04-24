@@ -15,7 +15,7 @@ import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-public class Main
+public class EmotionRecog
 {
     // **********************************************
     // *** Update or verify the following values. ***
