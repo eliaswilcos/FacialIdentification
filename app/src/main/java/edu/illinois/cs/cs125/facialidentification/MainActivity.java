@@ -21,6 +21,9 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.frosquivel.magicalcamera.MagicalCamera;
+import com.frosquivel.magicalcamera.Functionallities.PermissionGranted;
+
 public class MainActivity extends AppCompatActivity {
 
     /** Default logging tag for messages from the main activity. */
@@ -36,13 +39,27 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
         requestQueue = Volley.newRequestQueue(this);
-        final Button button = findViewById(R.id.refresh_weather);
-        button.setOnClickListener(new View.OnClickListener() {
+        final Button photoButton = findViewById(R.id.Photos);
+        photoButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(final View v) {
-                startAPICall();
+                getPhoto();
                 // Code here executes on main thread after user presses button
             }
         });
+        final Button cameraButton = findViewById(R.id.Camera);
+        cameraButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(final View v) {
+                takePhoto();
+                // Code here executes on main thread after user presses button
+            }
+        });
+
+        /**
+         * get photo
+         */
+        void getPhoto() {
+
+        }
 
         // Set up the queue for our API requests
 
