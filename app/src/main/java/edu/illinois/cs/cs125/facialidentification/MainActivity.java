@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         final Button cameraButton = findViewById(R.id.Camera);
         cameraButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(final View v) {
-                takePhoto();
+                takeAPhoto();
                 // Code here executes on main thread after user presses button
             }
         });
@@ -72,13 +72,15 @@ public class MainActivity extends AppCompatActivity {
         /**
          * take photo
          */
-        void takePhoto() {
+        void takeAPhoto() {
             String[] permissions = new String[] {
                     Manifest.permission.CAMERA,
                     Manifest.permission.READ_EXTERNAL_STORAGE,
                     Manifest.permission.WRITE_EXTERNAL_STORAGE
             };
             MagicalPermissions magicalPermissions = new MagicalPermissions(this, permissions);
+            MagicalCamera camera = new MagicalCamera(this, 100, magicalPermissions);
+            camera.takePhoto();
         }
 
         // Set up the queue for our API requests
